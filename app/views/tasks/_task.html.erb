@@ -1,7 +1,11 @@
-<li>
-  <%= task.description %>
-  <%= task.deadline %>
-  <%= link_to "Edit", edit_task_path(task), remote: true %>
-  <%= link_to "Delete", task, remote: true, method: :delete,
-        data: { confirm: '¿Estás segur@?' } %>
-</li>
+<% @tasks.each do |task| %>
+  
+  <div class= "card">
+    <div class= "a">
+      <%= link_to task.description, task,  remote: true, method: :delete, data: { confirm: '¿Estás segur@?' } %>
+    </div>
+      <small><%= link_to "Edit", edit_task_path(task), remote: true %></small>
+      <p class="text-muted"><small><%= task.deadline.strftime("Para el día %m/%d/%Y, a las %H:%M") %></small></p>
+    
+  </div>
+<% end %>

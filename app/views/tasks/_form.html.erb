@@ -5,10 +5,22 @@
     <%= form.text_field :description, id: :task_description %>
   </div>
 
-  <div class="field">
-    <%= form.label :deadline %>
-    <%= form.datetime_select :deadline, id: :task_deadline %>
+  <div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <%= form.label :deadline %> <!-- label anterior -->
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+
+                <%= form.text_field :deadline, class: "form-control datetimepicker-input", data: {target: "#datetimepicker1"} %>
+
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>
