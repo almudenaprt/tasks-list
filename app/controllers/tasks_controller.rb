@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    @tasks = Task.order(deadline: :asc)
     # @tasks = Task.all     No es necesario por el método all_tasks
   end
 
